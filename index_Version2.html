@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ScoreXact — Live Scores</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">ScoreXact</div>
+    </div>
+  </header>
+
+  <nav class="sportbar">
+    <div class="container sportbar__inner">
+      <button class="sportbtn is-active" data-sport="football(soccer)">Football</button>
+      <button class="sportbtn" data-sport="tennis">Tennis</button>
+      <button class="sportbtn" data-sport="handball">Handball</button>
+      <button class="sportbtn" data-sport="rugby">Rugby</button>
+      <button class="sportbtn" data-sport="volleyball">Volleyball</button>
+      <button class="sportbtn" data-sport="basketball">Basketball</button>
+    </div>
+  </nav>
+
+  <main class="page">
+    <aside class="ads ads--left" aria-label="Left advertisements">
+      <div class="ad">Ad 1</div><div class="ad">Ad 2</div><div class="ad">Ad 3</div>
+      <div class="ad">Ad 4</div><div class="ad">Ad 5</div><div class="ad">Ad 6</div>
+    </aside>
+
+    <aside class="sidebar" aria-label="Leagues navigation">
+      <section class="panel">
+        <h2 class="panel__title">Top Leagues (Europe)</h2>
+        <ul class="list">
+          <!-- IMPORTANT:
+               The values in data-league MUST match whatever the Livescore.bz widget expects.
+               I put placeholders (EPL, LIGUE1, etc.). You must replace them with correct IDs/keys. -->
+          <li><button class="filterlink" data-type="league" data-league="premier-league">Premier League</button></li>
+          <li><button class="filterlink" data-type="league" data-league="ligue-1">Ligue 1</button></li>
+          <li><button class="filterlink" data-type="league" data-league="bundesliga">Bundesliga</button></li>
+          <li><button class="filterlink" data-type="league" data-league="serie-a">Serie A</button></li>
+          <li><button class="filterlink" data-type="league" data-league="superliga-romania">Superliga Romania</button></li>
+          <li><button class="filterlink" data-type="league" data-league="laliga">LaLiga</button></li>
+        </ul>
+
+        <div class="filtersRow">
+          <button class="smallbtn" id="clearFiltersBtn" type="button">Clear filter</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel__title">Countries (A–Z)</h2>
+        <div class="countries">
+          <!-- Same note: data-country values must match the widget’s expected keys -->
+          <button class="country" data-type="country" data-country="argentina">Argentina</button>
+          <button class="country" data-type="country" data-country="austria">Austria</button>
+          <button class="country" data-type="country" data-country="belgium">Belgium</button>
+          <button class="country" data-type="country" data-country="brazil">Brazil</button>
+          <button class="country" data-type="country" data-country="croatia">Croatia</button>
+          <button class="country" data-type="country" data-country="czech-republic">Czech Republic</button>
+          <button class="country" data-type="country" data-country="denmark">Denmark</button>
+          <button class="country" data-type="country" data-country="england">England</button>
+          <button class="country" data-type="country" data-country="france">France</button>
+          <button class="country" data-type="country" data-country="germany">Germany</button>
+          <button class="country" data-type="country" data-country="greece">Greece</button>
+          <button class="country" data-type="country" data-country="italy">Italy</button>
+          <button class="country" data-type="country" data-country="netherlands">Netherlands</button>
+          <button class="country" data-type="country" data-country="poland">Poland</button>
+          <button class="country" data-type="country" data-country="portugal">Portugal</button>
+          <button class="country" data-type="country" data-country="romania">Romania</button>
+          <button class="country" data-type="country" data-country="scotland">Scotland</button>
+          <button class="country" data-type="country" data-country="spain">Spain</button>
+          <button class="country" data-type="country" data-country="sweden">Sweden</button>
+          <button class="country" data-type="country" data-country="switzerland">Switzerland</button>
+          <button class="country" data-type="country" data-country="turkey">Turkey</button>
+          <button class="country" data-type="country" data-country="ukraine">Ukraine</button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="content" aria-label="Live scores">
+      <div class="panel content__panel">
+        <div class="content__head">
+          <h1 class="content__title" id="pageTitle">Matches Today</h1>
+          <div class="badge" id="activeFilterBadge">Filter: Today (All)</div>
+        </div>
+
+        <div id="livescoreMount" class="livescore-embed"></div>
+      </div>
+    </section>
+
+    <aside class="ads ads--right" aria-label="Right advertisements">
+      <div class="ad">Ad 1</div><div class="ad">Ad 2</div><div class="ad">Ad 3</div>
+      <div class="ad">Ad 4</div><div class="ad">Ad 5</div><div class="ad">Ad 6</div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">© 2026 ScoreXact</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
