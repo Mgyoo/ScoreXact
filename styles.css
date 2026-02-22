@@ -1,0 +1,189 @@
+:root{
+  --bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --orange: #f97316;     /* orange writing */
+  --orange-2: #fb923c;
+  --border: #e5e7eb;
+  --panel: #ffffff;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container{
+  width: min(1200px, calc(100% - 24px));
+  margin-inline: auto;
+}
+
+/* Header 1 */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.topbar__inner{
+  height: 56px;
+  display:flex;
+  align-items:center;
+}
+.brand{
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: 20px;
+  color: var(--orange);
+}
+
+/* Header 2 */
+.sportbar{
+  position: sticky;
+  top: 56px;
+  z-index: 9;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.sportbar__inner{
+  padding: 10px 0;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Buttons: white background + orange writing */
+.sportbtn{
+  text-decoration:none;
+  color: var(--orange);
+  background: #fff;
+  border: 1px solid var(--orange);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+.sportbtn:hover{
+  border-color: var(--orange-2);
+  color: var(--orange-2);
+}
+.sportbtn.is-active{
+  background: var(--orange);
+  color: #fff;
+}
+
+/* Main 4-column layout: ads | sidebar | content | ads */
+.page{
+  display:grid;
+  grid-template-columns: 160px 280px minmax(520px, 1fr) 160px;
+  gap: 12px;
+  padding: 12px;
+  align-items: start;
+}
+
+/* Panels */
+.panel{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.panel__title{
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap: 8px;
+}
+.link{
+  color: var(--text);
+  text-decoration:none;
+  font-weight: 600;
+}
+.link:hover{ color: var(--orange); }
+
+.countries{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+.country{
+  text-decoration:none;
+  color: var(--muted);
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.country:hover{
+  background: #fff7ed;
+  color: var(--orange);
+}
+
+/* Ads */
+.ads{
+  display:grid;
+  gap: 12px;
+}
+.ad{
+  height: 140px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--muted);
+  font-weight: 700;
+  background: #fff;
+}
+
+/* Center content should reach down the page */
+.content__panel{
+  min-height: calc(100vh - 56px - 52px - 12px*2); /* sticky headers + padding */
+}
+.content__title{
+  margin: 0 0 12px;
+  color: var(--orange);
+  font-size: 18px;
+}
+
+/* Give the embed lots of space */
+.livescore-embed{
+  min-height: calc(100vh - 56px - 52px - 12px*2 - 80px);
+}
+
+/* Footer */
+.footer{
+  border-top: 1px solid var(--border);
+  padding: 16px 0;
+  color: var(--muted);
+}
+.footer__inner{
+  display:flex;
+  justify-content:center;
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .page{
+    grid-template-columns: 140px 260px 1fr 140px;
+  }
+}
+@media (max-width: 900px){
+  .page{
+    grid-template-columns: 1fr;
+  }
+  .ads{ grid-template-columns: repeat(2, 1fr); }
+}
